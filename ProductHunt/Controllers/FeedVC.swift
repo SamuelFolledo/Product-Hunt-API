@@ -42,6 +42,19 @@ extension FeedVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Get the storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        // Get the commentsView from the storyboard
+        guard let commentsView = storyboard.instantiateViewController(withIdentifier: "commentsView") as? CommentsVC else {
+            return
+        }
+        // add mock comments
+        commentsView.comments = ["Blah blah blah!", "Good app.", "Wow."]
+        navigationController?.pushViewController(commentsView, animated: true)
+    }
+    
 }
 
 extension FeedVC: UITableViewDataSource {
