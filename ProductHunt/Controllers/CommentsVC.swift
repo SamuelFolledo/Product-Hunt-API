@@ -10,11 +10,13 @@ import UIKit
 
 class CommentsVC: UIViewController {
     
-    var comments: [String]! {
-       didSet {
-//           commentsTableView.reloadData()
-       }
+    var comments: [Comment] = [] {
+        didSet {
+            commentsTableView.reloadData()
+        }
     }
+    
+    var postID: Int!
     var networkManager = NetworkManager()
     
     @IBOutlet weak var commentsTableView: UITableView!
@@ -22,7 +24,7 @@ class CommentsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-//        updateFeed()
+        updateComments()
     }
     
     fileprivate func setupTableView() {
@@ -30,11 +32,16 @@ class CommentsVC: UIViewController {
         commentsTableView.dataSource = self
     }
     
-    func updateFeed() {
-      // call our network manager's getcomments method to update our feed with comments
-       networkManager.getPosts() { result in
-           self.comments = []
-       }
+    func updateComments() {
+        // Similar to what we did for posts
+        networkManager.getComments(postID) { result in
+            switch result {
+            case let .success(comments):
+                self.comments = comments
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
 }
 
@@ -46,7 +53,7 @@ extension CommentsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentCell
         let comment = comments[indexPath.row]
-        cell.commentTextView.text = comment
+        cell.commentTextView.text = comment.body
         return cell
     }
 }

@@ -9,10 +9,10 @@
 import Foundation
 
 struct CommentApiResponse: Decodable {
-   let comments: [Comment]
+    let comments: [Comment]
 }
 
 struct Comment: Decodable {
- let id: Int
- let body: String
+    let id: Int
+    let body: String
 }
