@@ -40,9 +40,9 @@ extension Post: Decodable {
         commentsCount = try postsContainer.decode(Int.self, forKey: .commentsCount)
         // First we need to get a container (screenshot_url/previewImageURL) nested within our postsContainer.
         // If it only had a single value like the other properties, we wouldn't need to use nestedContainer
-        let screenshotURLContainer = try postsContainer.nestedContainer(keyedBy: PreviewImageURLKeys.self, forKey: .previewImageURL)
+        let screenshotURLContainer = try postsContainer.nestedContainer(keyedBy: PreviewImageURLKeys.self, forKey: .previewImageURL) //new
         // Decode the image and assign it to the variable
-        previewImageURL = try screenshotURLContainer.decode(URL.self, forKey: .imageURL)
+        previewImageURL = try screenshotURLContainer.decode(URL.self, forKey: .imageURL) //new
     }
     
     enum PostKeys: String, CodingKey {
