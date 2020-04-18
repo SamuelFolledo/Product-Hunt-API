@@ -54,6 +54,7 @@ extension FeedVC: UITableViewDelegate {
         guard let commentsView = storyboard.instantiateViewController(withIdentifier: "commentsView") as? CommentsVC else {
             return
         }
+        let post = posts[indexPath.row] //it was missing this line I think
         // set the post id for the comments
         commentsView.postID = post.id
         navigationController?.pushViewController(commentsView, animated: true)
