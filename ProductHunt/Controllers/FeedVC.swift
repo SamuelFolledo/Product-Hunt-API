@@ -9,7 +9,8 @@
 import UIKit
 
 class FeedVC: UIViewController {
-
+    @IBOutlet weak var feedTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
