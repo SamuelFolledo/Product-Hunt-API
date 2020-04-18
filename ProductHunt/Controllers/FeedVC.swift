@@ -10,26 +10,32 @@ import UIKit
 
 class FeedVC: UIViewController {
     
-    var mockData: [Post] = {
-       var meTube = Post(id: 0, name: "MeTube", tagline: "Stream videos for free!", votesCount: 25, commentsCount: 4)
-       var boogle = Post(id: 1, name: "Boogle", tagline: "Search anything!", votesCount: 1000, commentsCount: 50)
-       var meTunes = Post(id: 2, name: "meTunes", tagline: "Listen to any song!", votesCount: 25000, commentsCount: 590)
-
-       return [meTube, boogle, meTunes]
-    }()
+    var posts: [Post] = [] {
+       didSet {
+           feedTableView.reloadData()
+       }
+    }
+    var networkManager = NetworkManager()
     
     @IBOutlet weak var feedTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        updateFeed()
     }
     
     fileprivate func setupTableView() {
         feedTableView.delegate = self
         feedTableView.dataSource = self
     }
-
+    
+    func updateFeed() {
+      // call our network manager's getPosts method to update our feed with posts
+       networkManager.getPosts() { result in
+           self.posts = result
+       }
+    }
 }
 
 extension FeedVC: UITableViewDelegate {
@@ -40,16 +46,15 @@ extension FeedVC: UITableViewDelegate {
 
 extension FeedVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mockData.count
+        return posts.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // dequeue and return an available cell, instead of creating a new cell
         let cell = tableView.dequeueReusableCell(withIdentifier: PostCell.identifier, for: indexPath) as! PostCell
-        // Grab a post from our "data"
-        let post = mockData[indexPath.row]
-        // Assign a post to that cell
+        // retrieve from the actual posts, and not mock data
+        let post = posts[indexPath.row]
         cell.post = post
         return cell
     }
