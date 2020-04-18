@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FeedVC.swift
 //  ProductHunt
 //
 //  Created by Macbook Pro 15 on 4/15/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FeedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
