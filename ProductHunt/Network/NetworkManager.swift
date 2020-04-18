@@ -14,7 +14,7 @@ class NetworkManager {
     let urlSession = URLSession.shared
     
     var baseURL = "https://api.producthunt.com/v1/"
-    var token = "replace-me-with-your-token-from-product-hunt-api-dashboard-🙏"
+    var token = "r9mHMJY87kbNMJ8o0NTpVQWPqRRjeeNl9k68Zp8B_80"
     
     func getPosts(completion: @escaping ([Post]) -> Void) {
         // our API query
