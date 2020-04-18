@@ -35,6 +35,13 @@ class PostCell: UITableViewCell {
        // make sure we return if post doesn't exist
        guard let post = post else { return }
        // assign the placeholder image to the UI element
-       previewImageView.image = UIImage(named: "placeholderImage")
+        post.fetchImage { (image, error) in
+            if let error = error {
+                print(error)
+                self.previewImageView.image = UIImage(named: "placeholderImage")
+                return
+            }
+            self.previewImageView.image = image!
+        }
     }
 }

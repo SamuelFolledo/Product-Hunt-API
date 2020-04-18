@@ -6,7 +6,7 @@
 //  Copyright © 2020 SamuelFolledo. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // Have a matching decodable array in our struct for the array of posts we get back from the API
 struct PostList: Decodable {
@@ -22,6 +22,29 @@ struct Post {
     let votesCount: Int
     let commentsCount: Int
     let previewImageURL: URL
+    
+    func fetchImage(completion: @escaping (_ image: UIImage?, _ error: String?) -> Void) {
+        let request = URLRequest(url: previewImageURL)
+        let defaultSession = URLSession(configuration: .default)
+        let dataTask = defaultSession.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            guard error == nil else {
+                completion(nil, error?.localizedDescription)
+                return
+            }
+            guard let data = data else {
+                completion(nil, "No data")
+                return
+            }
+            if let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    completion(image, nil)
+                }
+            } else {
+                print("No Data fetched")
+            }
+        })
+        dataTask.resume()
+    }
 }
 
 
