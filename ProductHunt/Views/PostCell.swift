@@ -31,17 +31,27 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var votesCountLabel: UILabel!
     @IBOutlet weak var previewImageView: UIImageView!
     
+    override func prepareForReuse() { //reset the cell
+        self.nameLabel.text = ""
+        self.taglineLabel.text = ""
+        self.votesCountLabel.text = "Votes: 0"
+        self.commentsCountLabel.text = "Comments: 0"
+        self.previewImageView.image = UIImage(named: "placeholderImage")!
+    }
+    
     func updatePreviewImage() {
        // make sure we return if post doesn't exist
        guard let post = post else { return }
        // assign the placeholder image to the UI element
         post.fetchImage { (image, error) in
-            if let error = error {
-                print(error)
-                self.previewImageView.image = UIImage(named: "placeholderImage")
-                return
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error)
+                    self.previewImageView.image = UIImage(named: "placeholderImage")
+                    return
+                }
+                self.previewImageView.image = image!
             }
-            self.previewImageView.image = image!
         }
     }
 }

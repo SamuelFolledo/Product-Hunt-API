@@ -35,12 +35,14 @@ struct Post {
                 completion(nil, "No data")
                 return
             }
-            if let image = UIImage(data: data) {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data) {
+                    
                     completion(image, nil)
+                    
+                } else {
+                    print("\(self.name) has no image fetched from \(self.previewImageURL)")
                 }
-            } else {
-                print("No Data fetched")
             }
         })
         dataTask.resume()
