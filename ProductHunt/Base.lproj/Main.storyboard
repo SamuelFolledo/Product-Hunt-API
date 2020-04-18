@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" id="bme-4d-r7y">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" id="bme-4d-r7y" customClass="PostCell" customModule="ProductHunt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bme-4d-r7y" id="mEA-vr-pkv">
@@ -86,6 +86,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="qex-jK-504" secondAttribute="trailing" id="h2b-Td-7rS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="commentsCountLabel" destination="6Wp-5p-M4l" id="lyu-SE-9je"/>
+                                            <outlet property="nameLabel" destination="ZOC-dp-FpR" id="50O-1j-rJL"/>
+                                            <outlet property="previewImageView" destination="Ohm-Xh-kqU" id="mAX-Xn-dSR"/>
+                                            <outlet property="taglineLabel" destination="FOK-jT-X6x" id="H5A-er-rfC"/>
+                                            <outlet property="votesCountLabel" destination="ufb-9t-CN4" id="wdu-B7-C6e"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
