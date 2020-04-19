@@ -17,7 +17,7 @@ class PostCell: UITableViewCell {
             guard let post = post else { return }
             // Assign our UI elements to their post counterparts
             nameLabel.text = post.name
-            taglineLabel.text = post.tagline
+//            taglineLabel.text = post.makers[0].name ?? "?"
             commentsCountLabel.text = "Comments: \(post.commentsCount)"
             votesCountLabel.text = "Votes: \(post.votesCount)"
             // We'll write this next!
