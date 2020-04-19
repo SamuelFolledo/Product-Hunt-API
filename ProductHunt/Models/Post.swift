@@ -116,18 +116,9 @@ extension Post: Decodable {
 struct User: Codable {
 //    let id: Int
     let name: String
-//    let headline, twitterUsername: String?
-//    let websiteURL: String?
-//    let profileURL: String
     let imageURL: ImageURL
 
     enum CodingKeys: String, CodingKey {
-//        case id
-//        case createdAt = "created_at"
-//        case name, username, headline
-//        case twitterUsername = "twitter_username"
-//        case websiteURL = "website_url"
-//        case profileURL = "profile_url"
         case name
         case imageURL = "image_url"
     }
