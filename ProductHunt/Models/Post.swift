@@ -22,7 +22,7 @@ struct Post {
     let votesCount: Int
     let commentsCount: Int
     let previewImageURL: URL
-    let makers: [User]
+//    let makers: [User]
     
     func fetchImage(completion: @escaping (_ image: UIImage?, _ error: String?) -> Void) {
         let request = URLRequest(url: previewImageURL)
@@ -68,8 +68,7 @@ extension Post: Decodable {
         let screenshotURLContainer = try postsContainer.nestedContainer(keyedBy: PreviewImageURLKeys.self, forKey: .previewImageURL) //new
         // Decode the image and assign it to the variable
         previewImageURL = try screenshotURLContainer.decode(URL.self, forKey: .imageURL) //new
-        let makerList = try postsContainer.decode([User].self, forKey: .makers)
-        self.makers = makerList
+//        self.makers  = try postsContainer.decode([User].self, forKey: .makers)
         //for Makers array
         //MARK: Attempt 1
 //        var makerListContainer = try postsContainer.nestedUnkeyedContainer(forKey: .makers)

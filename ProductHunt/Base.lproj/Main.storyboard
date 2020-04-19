@@ -53,29 +53,35 @@
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOK-jT-X6x">
-                                                            <rect key="frame" x="8" y="227.66666666666666" width="398" height="14.333333333333343"/>
+                                                            <rect key="frame" x="8" y="188.33333333333334" width="398" height="14.333333333333343"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-Xh-kqU">
-                                                            <rect key="frame" x="8" y="33.333333333333329" width="398" height="189.33333333333337"/>
+                                                            <rect key="frame" x="8" y="33.333333333333343" width="398" height="150"/>
                                                         </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0YM-gH-E3E">
+                                                            <rect key="frame" x="8" y="207.66666666666666" width="398" height="42.333333333333343"/>
+                                                        </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstItem="FOK-jT-X6x" firstAttribute="leading" secondItem="qex-jK-504" secondAttribute="leading" constant="8" id="3F0-gb-CKc"/>
-                                                        <constraint firstAttribute="bottom" secondItem="FOK-jT-X6x" secondAttribute="bottom" constant="8" id="9m5-YL-lf6"/>
+                                                        <constraint firstAttribute="bottom" secondItem="0YM-gH-E3E" secondAttribute="bottom" id="JK7-Nq-fT1"/>
                                                         <constraint firstItem="zlc-uS-QXs" firstAttribute="leading" secondItem="ZOC-dp-FpR" secondAttribute="trailing" constant="12" id="O5X-dg-V8L"/>
+                                                        <constraint firstItem="0YM-gH-E3E" firstAttribute="top" secondItem="FOK-jT-X6x" secondAttribute="bottom" constant="5" id="S5O-CI-h0R"/>
                                                         <constraint firstItem="ZOC-dp-FpR" firstAttribute="top" secondItem="qex-jK-504" secondAttribute="topMargin" id="Uej-Bz-E4B"/>
                                                         <constraint firstAttribute="trailing" secondItem="Ohm-Xh-kqU" secondAttribute="trailing" constant="8" id="V9p-hN-BHT"/>
                                                         <constraint firstAttribute="trailing" secondItem="FOK-jT-X6x" secondAttribute="trailing" constant="8" id="VIz-Wg-uBT"/>
                                                         <constraint firstItem="ZOC-dp-FpR" firstAttribute="leading" secondItem="qex-jK-504" secondAttribute="leading" constant="8" id="Z5N-07-8Dm"/>
                                                         <constraint firstItem="FOK-jT-X6x" firstAttribute="top" secondItem="Ohm-Xh-kqU" secondAttribute="bottom" constant="5" id="c4g-og-g4T"/>
+                                                        <constraint firstAttribute="trailing" secondItem="0YM-gH-E3E" secondAttribute="trailing" constant="8" id="cOH-VT-fja"/>
                                                         <constraint firstItem="Ohm-Xh-kqU" firstAttribute="top" secondItem="ZOC-dp-FpR" secondAttribute="bottom" constant="5" id="fZZ-pP-mXH"/>
                                                         <constraint firstItem="zlc-uS-QXs" firstAttribute="bottom" secondItem="ZOC-dp-FpR" secondAttribute="bottom" id="tOy-2F-Fex"/>
                                                         <constraint firstItem="Ohm-Xh-kqU" firstAttribute="leading" secondItem="qex-jK-504" secondAttribute="leading" constant="8" id="vbd-n9-e6e"/>
                                                         <constraint firstAttribute="trailing" secondItem="zlc-uS-QXs" secondAttribute="trailing" constant="8" id="wIe-A5-gOo"/>
+                                                        <constraint firstItem="0YM-gH-E3E" firstAttribute="leading" secondItem="qex-jK-504" secondAttribute="leading" constant="8" id="yma-qu-S3r"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -88,6 +94,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentsCountLabel" destination="6Wp-5p-M4l" id="lyu-SE-9je"/>
+                                            <outlet property="makerStackView" destination="0YM-gH-E3E" id="iJU-n2-7Sn"/>
                                             <outlet property="nameLabel" destination="ZOC-dp-FpR" id="50O-1j-rJL"/>
                                             <outlet property="previewImageView" destination="Ohm-Xh-kqU" id="mAX-Xn-dSR"/>
                                             <outlet property="taglineLabel" destination="FOK-jT-X6x" id="H5A-er-rfC"/>
